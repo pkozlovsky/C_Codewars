@@ -11,3 +11,20 @@ Example(Input --> Output)
 
 ["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"] --> "found the needle at position 5" 
 */
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char *find_needle(const char *const haystack[], size_t count) {
+    for(size_t i = 0; i < count; i++) {
+        if(strcmp(haystack[i], "needle") == 0) {
+            char *result = malloc(50); 
+            if (result == NULL) {
+                return NULL;  
+            }
+            sprintf(result, "found the needle at position %zu", i);  
+            return result;  
+        }
+    }
+    return "needle not found";
+}
