@@ -9,3 +9,27 @@ XO("ooxXm") => true
 XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
 XO("zzoo") => false
 */
+
+#include <stdbool.h>
+
+bool xo (const char* str)
+{
+  int i = 0;
+  int len = 0;
+  while(str[i] != '\0') 
+  {
+    len++;
+    i++;
+  }
+
+  int xes = 0;
+  int os = 0;
+  
+  for(int j=0; j<len; j++)
+  {
+    if(str[j]=='x' || str[j]=='X') xes++;
+    if(str[j]=='o' || str[j]=='O') os++;    
+  }
+
+  return xes==os;
+}
