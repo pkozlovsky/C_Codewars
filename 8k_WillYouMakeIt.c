@@ -6,4 +6,9 @@ Considering these factors, write a function that tells you if it is possible to 
 Function should return true if it is possible and false if not.
 */
 
+#include <stdbool.h>
 
+bool zero_fuel(double distance_to_pump, double mpg, double fuel_left)
+{
+    return mpg * fuel_left >= distance_to_pump;
+}
