@@ -7,3 +7,22 @@ solution('abc', 'bc') // returns true
 solution('abc', 'd') // returns false
 */
 
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+
+bool solution(const char *string, const char *ending)
+{
+    int stringL = strlen(string);
+    int endingL = strlen(ending);
+    
+    if (stringL < endingL) {
+        return false; 
+    }
+
+    if (strcmp(string + stringL - endingL, ending) == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
