@@ -9,4 +9,14 @@ two_are_positive(-4, 6, 0) == False
 two_are_positive(4, 6, 10) == False
 two_are_positive(-14, -3, -4) == False
 */
+#include <stdbool.h>
 
+bool two_are_positive(int a, int b, int c) {
+    short positive = 0;
+
+    if (a > 0) positive++;
+    if (b > 0) positive++;
+    if (c > 0) positive++;
+
+    return positive == 2;
+}
