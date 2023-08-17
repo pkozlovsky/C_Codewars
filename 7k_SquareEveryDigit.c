@@ -11,4 +11,28 @@ Note: The function accepts an integer and returns an integer.
 Happy Coding!
 */
 
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
 
+unsigned long long square_digits(unsigned long long number) {
+    char str[20];
+    char squaredStr[40] = "";
+    char temp[10];
+
+    
+    sprintf(str, "%llu", number);  
+
+    for (int i = 0; i < strlen(str); i++) {
+        int digit = str[i] - '0';
+        int squared = pow(digit, 2);
+        sprintf(temp, "%d", squared);
+        strcat(squaredStr, temp);
+    }
+
+    
+    unsigned long long squaredNumber = strtoull(squaredStr, NULL, 10);  
+    //printf("Result: %llu\n", squaredNumber);  
+
+    return squaredNumber;
+}
