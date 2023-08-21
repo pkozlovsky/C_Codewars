@@ -16,4 +16,24 @@ printer_error(s) => "0/14"
 s="aaaxbbbbyyhwawiwjjjwwm"
 printer_error(s) => "8/22"
 */
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
+char* printerError(char *s) {
+    int len = 0;
+    int i = 0;
+    int error = 0;
+    
+    while(s[i]!=0)
+    {
+        len++;
+        if ((s[i]) < 'a' || (s[i] > 'm')) error++;  
+        i++;
+    }
+    char *resString = (char *)malloc(100 * sizeof(char)); 
+    if (resString == NULL) return NULL;
+
+    sprintf(resString,"%d/%d",error,len);
+    return resString;
+}
