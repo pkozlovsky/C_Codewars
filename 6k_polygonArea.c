@@ -13,4 +13,10 @@ area_of_polygon_inside_circle(5.8, 7); // => 92.053
 area_of_polygon_inside_circle(4, 5); // => 38.042
 */
 
+#include <math.h>
+double PI = 3.141592653589793; // Use this value as pi in your calculations if necessary
 
+double area_of_polygon_inside_circle(double r, int n) {
+  
+  return (n*pow(r,2)/2) * sin (2*PI/n);
+}
