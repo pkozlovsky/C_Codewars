@@ -15,3 +15,27 @@ Three input parameters are sides of given triangle. All input values are non-neg
 (3, 4, 5) ---> return 2 (Right, angles are approx. 37°, 53° and exactly 90°)
 (7, 12, 8) ---> return 3 (Obtuse, angles are approx. 34°, 106° and 40°)
 */
+//  Should return triangle type
+//  0 : if triangle cannot be made with given sides
+//  1 : acute triangle
+//  2 : right triangle
+//  3 : obtuse triangle
+#include <math.h>
+int triangleType(int a, int b, int c) {
+
+  if(a+b<=c || a+c<=b || b+c<=a) return 0;
+  else
+  {
+    int tmp = 0;
+    if(c<a)
+    {
+      tmp = a; a=c; c=tmp;
+    }
+    if(c<b) 
+    {
+      tmp = b; b=c; c=tmp;
+    } 
+    if(pow(a,2)+pow(b,2) < pow(c,2)) return 3;
+    else if (pow(a,2)+pow(b,2) == pow(c,2)) return 2;
+    else return 1;
+  }
