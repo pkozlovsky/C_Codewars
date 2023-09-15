@@ -10,4 +10,22 @@ isIsogram "moose" = false
 isIsogram "aba" = false
 */
 
+#include <stdbool.h>
+#include <string.h>
+#include <ctype.h> 
 
+bool IsIsogram(const char *string) 
+{
+    int slen = strlen(string);
+    for (int i = 0; i < slen; i++) 
+    {
+        for (int j = i + 1; j < slen; j++) 
+        {
+            if (tolower(*(string + i)) == tolower(*(string + j))) 
+            {
+                return false;
+            }
+        }
+    }
+    return true;
+}
